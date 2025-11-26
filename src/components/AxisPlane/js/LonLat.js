@@ -18,7 +18,17 @@ class LonLat {
     this.lat = lat;
     this.alt = alt ?? 0;
   }
-
+  /**
+   * 在方法名前加 get 关键字表示这是一个getter访问器属性
+   * height 是一个计算属性，而不是方法
+   * 当访问 height 时，会自动调用这个函数并返回 this.alt
+   * 调用时不需要括号，像访问普通属性一样
+   * const position = new LonLat(116.4, 39.9, 50);
+   * ❌ 错误用法（像方法一样调用）
+   *  position.height()
+   * ✅ 正确用法（像属性一样访问）
+   * position.height
+   */
   get height() {
     return this.alt;
   }

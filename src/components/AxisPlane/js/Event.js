@@ -1,5 +1,5 @@
 import * as Cesium from "cesium/Cesium";
-import { compareNumber } from "./config";
+import { compareNumber } from "./config";//数字比较
 
 class Event {
   constructor() {

@@ -19,7 +19,7 @@ export default {
       list: [       
         {
           id: 1,
-          img: "/images/nav/3D Models.jpg",
+          img: "/images/nav/AxisPlane.jpg",
           text: "轴面板",
           path: "/AxisPlane"
         },
