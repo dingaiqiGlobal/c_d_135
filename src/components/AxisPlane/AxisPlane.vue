@@ -2,7 +2,7 @@
  * @Author: dys
  * @Date: 2025-11-24 16:59:03
  * @LastEditors: dys
- * @LastEditTime: 2025-11-26 11:34:22
+ * @LastEditTime: 2025-11-26 14:58:11
  * @Descripttion: 
 -->
 <template>
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import * as dat from "dat.gui";
 import "cesium/Widgets/widgets.css";
 import * as Cesium from "cesium/Cesium";
 import EditCesium from "./js/EditCesium";
@@ -52,13 +53,14 @@ export default {
     this.viewer.animation.container.style.visibility = "hidden"; // 不显示动画控件
     this.viewer.timeline.container.style.visibility = "hidden"; // 不显示时间控件
 
-    this.viewer.camera.flyTo({
-      destination: Cesium.Cartesian3.fromDegrees(116.39801, 39.89869, 500),
-      orientation: {
-        heading: Cesium.Math.toRadians(0),
-        pitch: Cesium.Math.toRadians(-90), // 俯仰角（低头看）
-      },
-    });
+    // this.viewer.camera.flyTo({
+    //   destination: Cesium.Cartesian3.fromDegrees(116.39801, 39.89869, 500),
+    //   orientation: {
+    //     heading: Cesium.Math.toRadians(0),
+    //     pitch: Cesium.Math.toRadians(-90), // 俯仰角（低头看）
+    //   },
+    // });
+
     this.addPointEntity();
     this.addModel();
     this.add3dtiles();
@@ -87,6 +89,13 @@ export default {
         scale: 10,
       });
       this.viewer.scene.primitives.add(this.model);
+
+      const modelEditCesium = new EditCesium(this.viewer, {
+        rotateEnabled: true,
+        translateEnabled: true,
+        scaleEnabled: true,
+      });
+      modelEditCesium.addTo(this.model);
     },
     async add3dtiles() {
       this.tileset = await Cesium.Cesium3DTileset.fromUrl(
@@ -101,11 +110,11 @@ export default {
         }
       );
       this.viewer.scene.primitives.add(this.tileset);
+      this.viewer.zoomTo(this.tileset);
 
       const bimEditCesium = new EditCesium(this.viewer, {
         rotateEnabled: true,
         translateEnabled: true,
-        scaleEnabled: true,
       });
       bimEditCesium.addTo(this.tileset);
     },
