@@ -144,6 +144,7 @@ export default {
     this.viewer._cesiumWidget._creditContainer.style.display = "none";
     this.viewer.animation.container.style.visibility = "hidden";
     this.viewer.timeline.container.style.visibility = "hidden";
+     this.viewer.scene.globe.depthTestAgainstTerrain = false; //深度检测
 
     this.viewer.camera.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(116.39643, 39.89863, 2000.0),

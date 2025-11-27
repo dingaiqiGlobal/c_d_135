@@ -23,6 +23,12 @@ export default {
           text: "轴面板",
           path: "/AxisPlane"
         },
+        {
+          id: 1,
+          img: "/images/nav/AxisPlane.jpg",
+          text: "绘制编辑",
+          path: "/DrawEdit"
+        },
       ]
     };
   },
