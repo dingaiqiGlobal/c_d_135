@@ -25,7 +25,7 @@ export default {
         },
         {
           id: 1,
-          img: "/images/nav/AxisPlane.jpg",
+          img: "/images/nav/DrawEdit.jpg",
           text: "绘制编辑",
           path: "/DrawEdit"
         },

@@ -2,18 +2,13 @@
  * @Author: dys
  * @Date: 2025-10-28 16:41:42
  * @LastEditors: dys
- * @LastEditTime: 2025-11-27 14:38:48
+ * @LastEditTime: 2025-11-28 11:09:57
  * @Descripttion: 
 -->
 <template>
   <div>
     <div id="cesiumContainer"></div>
-    <div class="panel">
-      <button @click="drawActivate('Point')">绘制点</button>
-      <button @click="drawActivate('Polyline')">绘制线</button>
-      <button @click="drawActivate('Polygon')">绘制面</button>
-      <button @click="clearDraw">清空绘制</button>
-    </div>
+    <Panel/>
   </div>
 </template>
 
@@ -21,9 +16,9 @@
 import "cesium/Widgets/widgets.css";
 import * as Cesium from "cesium/Cesium";
 import drawEditObj from "./js/drawEditObj.js";
+import Panel from "./Panel";
 export default {
-  components: {},
-
+  components: {Panel},
   data() {
     return {
       viewer: null,
@@ -170,12 +165,4 @@ export default {
 };
 </script>
 <style>
-.panel {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  width: 250px;
-  height: 30px;
-  border: 1px solid red;
-}
 </style>
